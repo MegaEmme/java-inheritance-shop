@@ -7,11 +7,11 @@ import java.util.Random;
 public class Prodotto {
 
     // attributi
-    private final int codice;
-    private String nome;
-    private String marca;
-    private BigDecimal prezzo;
-    private BigDecimal iva;
+    protected final int codice;
+    protected String nome;
+    protected String marca;
+    protected BigDecimal prezzo;
+    protected BigDecimal iva;
 
     // costruttori
     public Prodotto(String nome, String marca, BigDecimal prezzo, BigDecimal iva) {
@@ -57,6 +57,7 @@ public class Prodotto {
     }
 
     public String getInfo() {
-        return "Stai vedendo: " + nome + ", prodotto da: " + marca + ", al costo di: " + getPrezzoBase() + " Euro";
+        return "Stai acquistando: " + nome + ", prodotto da: " + marca + ", al costo di: " + getPrezzoBase() + " Euro"
+                + ", Codice: " + codice;
     }
 }
