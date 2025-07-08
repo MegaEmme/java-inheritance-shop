@@ -20,8 +20,18 @@ public class Main {
         System.out.println(Samsung.infoSmartphone());
 
         // implementazione sottocasse Televisori
+        Televisori Panasonic = new Televisori("Z80A", "Panasonic", new BigDecimal(659.67), new BigDecimal(0.22),
+                "65'", true);
+
+        System.out.print(Panasonic.getInfo());
+        System.out.println(Panasonic.infoTv());
 
         // implementazione sottoclasse Cuffie
+        Cuffie Bose = new Cuffie("Quiet Comfort", "Bose", new BigDecimal(199.95), new BigDecimal(0.22),
+                "Midnight Black", true);
+
+        System.out.print(Bose.getInfo());
+        System.out.println(Bose.infoCuffie());
 
     }
 }

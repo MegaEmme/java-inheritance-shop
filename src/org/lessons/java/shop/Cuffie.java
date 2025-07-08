@@ -34,4 +34,9 @@ public class Cuffie extends Prodotto {
     }
 
     // metodi aggiuntivi
+
+    protected String infoCuffie() {
+        String wireless = isWireless ? "si" : "no";
+        return String.format("Colore: %s, Wireless: %s", this.colore, wireless);
+    }
 }

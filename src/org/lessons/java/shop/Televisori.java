@@ -33,4 +33,9 @@ public class Televisori extends Prodotto {
     }
 
     // metodi aggiuntivi
+
+    protected String infoTv() {
+        String smart = isSmart ? "si" : "no";
+        return String.format("Dimensioni: %s, Smart Tv: %s", this.dimensioni, smart);
+    }
 }

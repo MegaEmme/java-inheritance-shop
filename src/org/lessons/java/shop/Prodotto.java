@@ -11,7 +11,7 @@ public class Prodotto {
     protected String nome;
     protected String marca;
     protected BigDecimal prezzo;
-    protected BigDecimal iva;
+    protected BigDecimal iva = new BigDecimal(0.22);
 
     // costruttori
     protected Prodotto(String nome, String marca, BigDecimal prezzo, BigDecimal iva) {
@@ -57,11 +57,11 @@ public class Prodotto {
     }
 
     protected String getInfo() {
-        // return "Stai acquistando: " + nome + ", prodotto da: " + marca + ", al costo
-        // di: " + getPrezzoBase() + " Euro"
-        // + ", Codice: " + codice;
-        return String.format("Stai acquistando: %s, prodotto da: %s, al costo di: %s Euro, Codice: %d ", this.nome,
+
+        return String.format(
+                "Stai acquistando: %s, prodotto da: %s, al costo di: %s Euro senza IVA, e di: %s Euro più IVA, Codice: %d, ",
+                this.nome,
                 this.marca,
-                getPrezzoBase(), this.codice);
+                getPrezzoBase(), getPrezzoIvato().setScale(2, RoundingMode.HALF_UP), this.codice);
     }
 }
