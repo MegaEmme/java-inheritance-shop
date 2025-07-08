@@ -7,7 +7,7 @@ public class Cuffie extends Prodotto {
     protected String colore;
     protected boolean isWireless;
 
-    public Cuffie(int codice, String nome, String marca, BigDecimal prezzo, BigDecimal iva, String colore,
+    protected Cuffie(String nome, String marca, BigDecimal prezzo, BigDecimal iva, String colore,
             boolean isWireless) {
         super(nome, marca, prezzo, iva);
         this.colore = colore;
@@ -17,19 +17,19 @@ public class Cuffie extends Prodotto {
 
     // getter e setter
 
-    public String getColore() {
+    protected String getColore() {
         return this.colore;
     }
 
-    public void setColore(String colore) {
+    protected void setColore(String colore) {
         this.colore = colore;
     }
 
-    public boolean getIsWireless() {
+    protected boolean getIsWireless() {
         return this.isWireless;
     }
 
-    public void setIsWireless(boolean isWireless) {
+    protected void setIsWireless(boolean isWireless) {
         this.isWireless = isWireless;
     }
 

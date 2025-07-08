@@ -14,7 +14,7 @@ public class Prodotto {
     protected BigDecimal iva;
 
     // costruttori
-    public Prodotto(String nome, String marca, BigDecimal prezzo, BigDecimal iva) {
+    protected Prodotto(String nome, String marca, BigDecimal prezzo, BigDecimal iva) {
         Random rand = new Random();
         this.codice = rand.nextInt(9999999);
         this.nome = nome;
@@ -24,40 +24,44 @@ public class Prodotto {
     }
 
     // getter e setter
-    public int getCodice() {
+    protected int getCodice() {
         return this.codice;
     }
 
-    public String getNome() {
+    protected String getNome() {
         return this.nome;
     }
 
-    public void setNome(String nome) {
+    protected void setNome(String nome) {
         this.nome = nome;
     }
 
-    public String getMarca() {
+    protected String getMarca() {
         return this.marca;
     }
 
-    public void setMarca(String marca) {
+    protected void setMarca(String marca) {
         this.marca = marca;
     }
 
-    public BigDecimal getPrezzoBase() {
+    protected BigDecimal getPrezzoBase() {
         return this.prezzo.setScale(2, RoundingMode.HALF_UP);
     }
 
-    public void setPrezzoBase(BigDecimal prezzoBase) {
+    protected void setPrezzoBase(BigDecimal prezzoBase) {
         this.prezzo = prezzoBase;
     }
 
-    public BigDecimal getPrezzoIvato() {
+    protected BigDecimal getPrezzoIvato() {
         return prezzo.add(prezzo.multiply(iva));
     }
 
-    public String getInfo() {
-        return "Stai acquistando: " + nome + ", prodotto da: " + marca + ", al costo di: " + getPrezzoBase() + " Euro"
-                + ", Codice: " + codice;
+    protected String getInfo() {
+        // return "Stai acquistando: " + nome + ", prodotto da: " + marca + ", al costo
+        // di: " + getPrezzoBase() + " Euro"
+        // + ", Codice: " + codice;
+        return String.format("Stai acquistando: %s, prodotto da: %s, al costo di: %s Euro, Codice: %d ", this.nome,
+                this.marca,
+                getPrezzoBase(), this.codice);
     }
 }

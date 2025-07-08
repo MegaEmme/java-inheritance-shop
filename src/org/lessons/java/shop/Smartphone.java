@@ -4,10 +4,10 @@ import java.math.BigDecimal;
 
 public class Smartphone extends Prodotto {
 
-    protected BigDecimal imeiCode;
+    protected int imeiCode;
     protected int memoria;
 
-    public Smartphone(int codice, String nome, String marca, BigDecimal prezzo, BigDecimal iva, BigDecimal imeiCode,
+    protected Smartphone(String nome, String marca, BigDecimal prezzo, BigDecimal iva, int imeiCode,
             int memoria) {
         super(nome, marca, prezzo, iva);
         this.imeiCode = imeiCode;
@@ -16,21 +16,25 @@ public class Smartphone extends Prodotto {
 
     // getter e setter
 
-    public BigDecimal getImieiCode() {
+    protected int getImieiCode() {
         return this.imeiCode;
     }
 
-    public void setImeiCode(BigDecimal imeiCode) {
+    protected void setImeiCode(int imeiCode) {
         this.imeiCode = imeiCode;
     }
 
-    public int getMemoria() {
+    protected int getMemoria() {
         return this.memoria;
     }
 
-    public void setMemoria(int memoria) {
+    protected void setMemoria(int memoria) {
         this.memoria = memoria;
     }
 
     // metodi aggiuntivi
+
+    protected String infoSmartphone() {
+        return String.format("Codice IMEI: %d, Memoria disponibile: %d GB", this.imeiCode, this.memoria);
+    }
 }

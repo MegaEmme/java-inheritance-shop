@@ -7,7 +7,7 @@ public class Televisori extends Prodotto {
     protected String dimensioni;
     protected boolean isSmart;
 
-    public Televisori(int codice, String nome, String marca, BigDecimal prezzo, BigDecimal iva, String dimensioni,
+    protected Televisori(String nome, String marca, BigDecimal prezzo, BigDecimal iva, String dimensioni,
             boolean isSmart) {
         super(nome, marca, prezzo, iva);
         this.dimensioni = dimensioni;
@@ -16,19 +16,19 @@ public class Televisori extends Prodotto {
 
     // getter e setter
 
-    public String getDimensioni() {
+    protected String getDimensioni() {
         return this.dimensioni;
     }
 
-    public void setDimensioni(String dimensioni) {
+    protected void setDimensioni(String dimensioni) {
         this.dimensioni = dimensioni;
     }
 
-    public boolean getIsSmart() {
+    protected boolean getIsSmart() {
         return this.isSmart;
     }
 
-    public void setIsSmart(boolean isSmart) {
+    protected void setIsSmart(boolean isSmart) {
         this.isSmart = isSmart;
     }
 
