@@ -4,8 +4,8 @@ import java.math.BigDecimal;
 
 public class Televisori extends Prodotto {
 
-    protected String dimensioni;
-    protected boolean isSmart;
+    private String dimensioni;
+    private boolean isSmart;
 
     protected Televisori(String nome, String marca, BigDecimal prezzo, BigDecimal iva, String dimensioni,
             boolean isSmart) {
