@@ -11,7 +11,7 @@ public class Prodotto {
     private String nome;
     private String marca;
     private BigDecimal prezzo;
-    private BigDecimal iva = new BigDecimal(0.22);
+    private BigDecimal iva;
 
     // costruttori
     protected Prodotto(String nome, String marca, BigDecimal prezzo, BigDecimal iva) {
@@ -59,7 +59,7 @@ public class Prodotto {
     protected String getInfo() {
 
         return String.format(
-                "Stai acquistando: %s, prodotto da: %s, al costo di: %s Euro senza IVA, e di: %s Euro più IVA, Codice: %d, ",
+                "-----------\nStai acquistando : \n %s \nprodotto da : \n %s \nal costo di : \n %s Euro senza IVA \n %s Euro più IVA \nCodice prodotto: \n %d ",
                 this.nome,
                 this.marca,
                 getPrezzoBase(), getPrezzoIvato().setScale(2, RoundingMode.HALF_UP), this.codice);

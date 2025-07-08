@@ -7,7 +7,7 @@ public class Smartphone extends Prodotto {
     private int imeiCode;
     private int memoria;
 
-    protected Smartphone(String nome, String marca, BigDecimal prezzo, BigDecimal iva, int imeiCode,
+    public Smartphone(String nome, String marca, BigDecimal prezzo, BigDecimal iva, int imeiCode,
             int memoria) {
         super(nome, marca, prezzo, iva);
         this.imeiCode = imeiCode;
@@ -16,25 +16,24 @@ public class Smartphone extends Prodotto {
 
     // getter e setter
 
-    protected int getImieiCode() {
+    public int getImieiCode() {
         return this.imeiCode;
     }
 
-    protected void setImeiCode(int imeiCode) {
+    public void setImeiCode(int imeiCode) {
         this.imeiCode = imeiCode;
     }
 
-    protected int getMemoria() {
+    public int getMemoria() {
         return this.memoria;
     }
 
-    protected void setMemoria(int memoria) {
+    public void setMemoria(int memoria) {
         this.memoria = memoria;
     }
 
     // metodi aggiuntivi
-
-    protected String infoSmartphone() {
-        return String.format("Codice IMEI: %d, Memoria disponibile: %d GB", this.imeiCode, this.memoria);
+    public String infoSmartphone() {
+        return super.getInfo() + "\nCodice imei : \n " + getImieiCode() + "\nGiga : \n " + getMemoria();
     }
 }
