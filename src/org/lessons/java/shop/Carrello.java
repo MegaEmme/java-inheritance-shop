@@ -69,7 +69,7 @@ public class Carrello {
                                     price = new BigDecimal(0);
                                     break;
                             }
-                            System.out.println("Memoria desiderata? 16GB - 32GB - 64GB");
+                            System.out.println("Memoria desiderata? (16GB - 32GB - 64GB)");
                             int memoria;
                             do {
                                 memoria = scan.nextInt();
@@ -125,7 +125,7 @@ public class Carrello {
                                     price = new BigDecimal(0);
                                     break;
                             }
-                            System.out.println("Memoria desiderata? 16GB - 32GB - 64GB -128GB");
+                            System.out.println("Memoria desiderata? (16GB - 32GB - 64GB -128GB)");
                             int memoria;
                             do {
                                 memoria = scan.nextInt();
@@ -157,6 +157,159 @@ public class Carrello {
         // Sezione Tv
         else if (prodottoCarrello.equalsIgnoreCase("tv") || prodottoCarrello.equals("2")) {
             System.out.println("Benvenuto nella sezione TV");
+            System.out.println(
+                    "Stai cercando una TV LG o Panasonic? (puoi anche digitare 1, 2 per la rispettiva marca)");
+            String marcaTv;
+            do {
+                marcaTv = scan.nextLine();
+                if (marcaTv.equalsIgnoreCase("lg") || marcaTv.equals("1")) {
+                    System.out.println("Sezione LG\n Seleziona modello (C5 (no Smart), M5, G5)");
+                    String modello;
+                    do {
+                        modello = scan.nextLine();
+                        if (modello.equalsIgnoreCase("c5") || modello.equalsIgnoreCase("g5")
+                                || modello.equalsIgnoreCase("m5")) {
+                            BigDecimal price;
+                            boolean isSmart;
+                            switch (modello) {
+                                case "c5":
+                                    price = new BigDecimal(800);
+                                    isSmart = false;
+                                    break;
+                                case "g5":
+                                    price = new BigDecimal(1000);
+                                    isSmart = true;
+                                    break;
+                                case "m5":
+                                    price = new BigDecimal(1200);
+                                    isSmart = true;
+                                    break;
+                                default:
+                                    price = new BigDecimal(0);
+                                    isSmart = false;
+                                    break;
+                            }
+                            System.out.println("Seleziona dimensioni (50', 60', 65')");
+                            String dimensioni;
+                            do {
+                                dimensioni = scan.nextLine();
+                                if (dimensioni.equalsIgnoreCase("50") || dimensioni.equalsIgnoreCase("60")
+                                        || dimensioni.equalsIgnoreCase("65")) {
+                                    BigDecimal priceDimensioni;
+                                    switch (dimensioni) {
+                                        case "50":
+                                            priceDimensioni = new BigDecimal(20);
+                                            break;
+                                        case "60":
+                                            priceDimensioni = new BigDecimal(50);
+                                            break;
+                                        case "65":
+                                            priceDimensioni = new BigDecimal(200);
+                                            break;
+                                        default:
+                                            priceDimensioni = new BigDecimal(0);
+                                            break;
+                                    }
+                                    BigDecimal finalPrice = price.add(priceDimensioni);
+                                    Televisori LG = new Televisori("LG " + modello.toUpperCase(), "Panasonic",
+                                            finalPrice,
+                                            dimensioni,
+                                            isSmart);
+                                    System.out.println(LG.getInfo());
+                                    if (isFidelityPresent && !isSmart) {
+                                        System.out.println(
+                                                "[Per TV non dotati di funzionalità smart lo sconto fedeltà sale al : 10%] \nPrezzo finale scontato : \n "
+                                                        + LG.getDiscountDieci().setScale(2, RoundingMode.HALF_UP)
+                                                        + " Euro (prezzo comprensivo di IVA)");
+                                    } else if (isFidelityPresent) {
+                                        System.out.println(
+                                                "[Sconto Base tesserati : 2%] \nPrezzo finale scontato : \n "
+                                                        + LG.getDiscountBase().setScale(2, RoundingMode.HALF_UP)
+                                                        + " Euro (prezzo comprensivo di IVA)");
+                                    }
+                                } else {
+                                    System.out.println("Dimensioni non disponibili, riprova");
+                                }
+                            } while (!(dimensioni.equalsIgnoreCase("50") || dimensioni.equalsIgnoreCase("60")
+                                    || dimensioni.equalsIgnoreCase("65")));
+                        } else {
+                            System.out.println("Modello non disponbile, riprova");
+                        }
+                    } while (!(modello.equals("c5") || modello.equals("g5") || modello.equals("m5")));
+                } else if (marcaTv.equalsIgnoreCase("panasonic") || marcaTv.equals("2")) {
+                    System.out.println("Sezione Panasonic\n Seleziona modello (Z80B (no Smart), Z90B, Z95B)");
+                    String modello;
+                    do {
+                        modello = scan.nextLine();
+                        if (modello.equalsIgnoreCase("z80b") || modello.equalsIgnoreCase("z90b")
+                                || modello.equalsIgnoreCase("z95b")) {
+                            BigDecimal price;
+                            boolean isSmart;
+                            switch (modello) {
+                                case "z80b":
+                                    price = new BigDecimal(649.99);
+                                    isSmart = false;
+                                    break;
+                                case "z90b":
+                                    price = new BigDecimal(869.99);
+                                    isSmart = true;
+                                    break;
+                                case "z95b":
+                                    price = new BigDecimal(1099.99);
+                                    isSmart = true;
+                                    break;
+                                default:
+                                    price = new BigDecimal(0);
+                                    isSmart = false;
+                                    break;
+                            }
+                            System.out.println("Seleziona dimensioni (43', 52', 75')");
+                            String dimensioni;
+                            do {
+                                dimensioni = scan.nextLine();
+                                if (dimensioni.equalsIgnoreCase("43") || dimensioni.equalsIgnoreCase("52")
+                                        || dimensioni.equalsIgnoreCase("75")) {
+                                    BigDecimal priceDimensioni;
+                                    switch (dimensioni) {
+                                        case "43":
+                                            priceDimensioni = new BigDecimal(20);
+                                            break;
+                                        case "52":
+                                            priceDimensioni = new BigDecimal(50);
+                                            break;
+                                        case "75":
+                                            priceDimensioni = new BigDecimal(200);
+                                            break;
+                                        default:
+                                            priceDimensioni = new BigDecimal(0);
+                                            break;
+                                    }
+                                    BigDecimal finalPrice = price.add(priceDimensioni);
+                                    Televisori Panasonic = new Televisori("Panasonic " + modello.toUpperCase(),
+                                            "Panasonic", finalPrice, dimensioni, isSmart);
+                                    System.out.println(Panasonic.getInfo());
+                                    if (isFidelityPresent && !isSmart) {
+                                        System.out.println(
+                                                "[Per TV non dotati di funzionalità smart lo sconto fedeltà sale al : 10%] \nPrezzo finale scontato : \n "
+                                                        + Panasonic.getDiscountDieci().setScale(2, RoundingMode.HALF_UP)
+                                                        + " Euro (prezzo comprensivo di IVA)");
+                                    } else if (isFidelityPresent) {
+                                        System.out.println(
+                                                "[Sconto Base tesserati : 2%] \nPrezzo finale scontato : \n "
+                                                        + Panasonic.getDiscountBase().setScale(2, RoundingMode.HALF_UP)
+                                                        + " Euro (prezzo comprensivo di IVA)");
+                                    }
+                                }
+                            } while (!(dimensioni.equalsIgnoreCase("43") || dimensioni.equalsIgnoreCase("52")
+                                    || dimensioni.equalsIgnoreCase("75")));
+                        }
+                    } while (!(modello.equals("z80b") || modello.equals("z90b") || modello.equals("z95b")));
+                } else {
+                    System.out.println(
+                            "Inserisci uno tra LG e Panasonic (puoi anche digitare 1 o 2 per la rispettiva sezione)");
+                }
+            } while (!(marcaTv.equalsIgnoreCase("lg") || marcaTv.equals("1")
+                    || marcaTv.equalsIgnoreCase("panasonic") || marcaTv.equals("2")));
         }
 
         // Sezione Cuffie
