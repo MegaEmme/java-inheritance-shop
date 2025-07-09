@@ -315,6 +315,57 @@ public class Carrello {
         // Sezione Cuffie
         else if (prodottoCarrello.equalsIgnoreCase("cuffie") || prodottoCarrello.equals("3")) {
             System.out.println("Benvenuto nella sezione Cuffie");
+            System.out.println(
+                    "Digita il nome del modello di cuffie che stai cercando : ");
+            String modelloCuffie = scan.nextLine();
+            System.out.println("Inserisci marca cuffie");
+            String marcaCuffie = scan.nextLine();
+            System.out.println("Inserisci colore");
+            String coloreCuffie = scan.nextLine();
+            BigDecimal prezzo;
+            boolean inputPrezzoValido;
+            do {
+                System.out.println("Scegli fascia di prezzo (50, 100, 200)");
+                prezzo = scan.nextBigDecimal();
+                if (prezzo.compareTo(new BigDecimal(50)) == 0 ||
+                        prezzo.compareTo(new BigDecimal(100)) == 0 ||
+                        prezzo.compareTo(new BigDecimal(200)) == 0) {
+                    inputPrezzoValido = true;
+                } else {
+                    System.out.println("Fascia di prezzo non valida. Puoi inserire solo 50, 100 o 200. Riprova:");
+                    inputPrezzoValido = false;
+                }
+            } while (!inputPrezzoValido);
+
+            System.out.println("Wireless? (true or false)");
+            boolean isWireless = false;
+            String wireless;
+            do {
+                wireless = scan.nextLine();
+                if (wireless.equalsIgnoreCase("true") || wireless.equals("1")) {
+                    isWireless = true;
+                } else if (wireless.equalsIgnoreCase("false") || wireless.equals("0")) {
+                    isWireless = false;
+                } else {
+                    System.out.println("puoi inserire solo true or false (oppure 1 o 0). Riprova");
+                }
+            } while (!(wireless.equalsIgnoreCase("true") || wireless.equals("1") || wireless.equalsIgnoreCase("false")
+                    || wireless.equals("0")));
+
+            Cuffie cuffie = new Cuffie(modelloCuffie, marcaCuffie, prezzo, coloreCuffie, isWireless);
+            System.out.println(cuffie.getInfo());
+            if (isFidelityPresent && !isWireless) {
+                System.out.println(
+                        "[Per cuffie cablate lo sconto fedeltà sale al : 7%] \nPrezzo finale scontato : \n "
+                                + cuffie.getDiscountSette().setScale(2, RoundingMode.HALF_UP)
+                                + " Euro (prezzo comprensivo di IVA)");
+            } else if (isFidelityPresent) {
+                System.out.println(
+                        "[Sconto Base tesserati : 2%] \nPrezzo finale scontato : \n "
+                                + cuffie.getDiscountBase().setScale(2, RoundingMode.HALF_UP)
+                                + " Euro (prezzo comprensivo di IVA)");
+            }
+
         }
 
         // Prodotto non trovato
