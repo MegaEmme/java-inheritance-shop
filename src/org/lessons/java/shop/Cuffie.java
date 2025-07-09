@@ -4,9 +4,11 @@ import java.math.BigDecimal;
 
 public class Cuffie extends Prodotto {
 
+    // attributi
     protected String colore;
     protected boolean isWireless;
 
+    // costruttori
     public Cuffie(String nome, String marca, BigDecimal prezzo, BigDecimal iva, String colore,
             boolean isWireless) {
         super(nome, marca, prezzo, iva);
@@ -16,7 +18,6 @@ public class Cuffie extends Prodotto {
     }
 
     // getter e setter
-
     public String getColore() {
         return this.colore;
     }

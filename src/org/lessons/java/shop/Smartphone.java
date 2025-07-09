@@ -4,9 +4,11 @@ import java.math.BigDecimal;
 
 public class Smartphone extends Prodotto {
 
+    // attributi
     private int imeiCode;
     private int memoria;
 
+    // costruttori
     public Smartphone(String nome, String marca, BigDecimal prezzo, BigDecimal iva, int imeiCode,
             int memoria) {
         super(nome, marca, prezzo, iva);
@@ -15,7 +17,6 @@ public class Smartphone extends Prodotto {
     }
 
     // getter e setter
-
     public int getImieiCode() {
         return this.imeiCode;
     }

@@ -4,9 +4,11 @@ import java.math.BigDecimal;
 
 public class Televisori extends Prodotto {
 
+    // attributi
     private String dimensioni;
     private boolean isSmart;
 
+    // costruttori
     public Televisori(String nome, String marca, BigDecimal prezzo, BigDecimal iva, String dimensioni,
             boolean isSmart) {
         super(nome, marca, prezzo, iva);
@@ -15,7 +17,6 @@ public class Televisori extends Prodotto {
     }
 
     // getter e setter
-
     public String getDimensioni() {
         return this.dimensioni;
     }
