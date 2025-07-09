@@ -14,7 +14,7 @@ public class Prodotto {
     private BigDecimal iva;
 
     // costruttori
-    protected Prodotto(String nome, String marca, BigDecimal prezzo, BigDecimal iva) {
+    public Prodotto(String nome, String marca, BigDecimal prezzo, BigDecimal iva) {
         Random rand = new Random();
         this.codice = rand.nextInt(9999999);
         this.nome = nome;
@@ -24,39 +24,39 @@ public class Prodotto {
     }
 
     // getter e setter
-    protected int getCodice() {
+    public int getCodice() {
         return this.codice;
     }
 
-    protected String getNome() {
+    public String getNome() {
         return this.nome;
     }
 
-    protected void setNome(String nome) {
+    public void setNome(String nome) {
         this.nome = nome;
     }
 
-    protected String getMarca() {
+    public String getMarca() {
         return this.marca;
     }
 
-    protected void setMarca(String marca) {
+    public void setMarca(String marca) {
         this.marca = marca;
     }
 
-    protected BigDecimal getPrezzoBase() {
+    public BigDecimal getPrezzoBase() {
         return this.prezzo.setScale(2, RoundingMode.HALF_UP);
     }
 
-    protected void setPrezzoBase(BigDecimal prezzoBase) {
+    public void setPrezzoBase(BigDecimal prezzoBase) {
         this.prezzo = prezzoBase;
     }
 
-    protected BigDecimal getPrezzoIvato() {
+    public BigDecimal getPrezzoIvato() {
         return prezzo.add(prezzo.multiply(iva));
     }
 
-    protected String getInfo() {
+    public String getInfo() {
 
         return String.format(
                 "-----------\nStai acquistando : \n %s \nprodotto da : \n %s \nal costo di : \n %s Euro senza IVA \n %s Euro più IVA \nCodice prodotto: \n %d ",
