@@ -56,12 +56,30 @@ public class Prodotto {
         return prezzo.add(prezzo.multiply(iva));
     }
 
+    // metodi aggiuntivi
+
     public String getInfo() {
 
         return String.format(
-                "\n-----------\nStai acquistando : \n %s \nprodotto da : \n %s \nal costo di : \n %s Euro senza IVA \n %s Euro più IVA \nCodice prodotto: \n %d ",
+                "\n----------->\n| CARRELLO |\n<-----------\nStai acquistando : \n %s \nprodotto da : \n %s \nal costo base di : \n %s Euro \npiù IVA : \n %s Euro \nCodice prodotto: \n %d ",
                 this.nome,
                 this.marca,
                 getPrezzoBase(), getPrezzoIvato().setScale(2, RoundingMode.HALF_UP), this.codice);
+    }
+
+    public BigDecimal getDiscountBase() {
+        return this.getPrezzoIvato().divide(BigDecimal.valueOf(100)).multiply(BigDecimal.valueOf(98));
+    }
+
+    public BigDecimal getDiscountCinque() {
+        return this.getPrezzoIvato().divide(BigDecimal.valueOf(100)).multiply(BigDecimal.valueOf(95));
+    }
+
+    public BigDecimal getDiscountSette() {
+        return this.getPrezzoIvato().divide(BigDecimal.valueOf(100)).multiply(BigDecimal.valueOf(93));
+    }
+
+    public BigDecimal getDiscountDieci() {
+        return this.getPrezzoIvato().divide(BigDecimal.valueOf(100)).multiply(BigDecimal.valueOf(90));
     }
 }

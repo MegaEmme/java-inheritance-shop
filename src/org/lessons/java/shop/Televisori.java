@@ -37,6 +37,7 @@ public class Televisori extends Prodotto {
     @Override
     public String getInfo() {
         String smart = isSmart ? "si" : "no";
-        return super.getInfo() + "\nDimensioni : \n " + getDimensioni() + "\nSmart TV abilitato : \n " + smart;
+        return super.getInfo() + "\nDimensioni : \n " + getDimensioni() + "\nSmart TV abilitato : \n " + smart
+                + "\n<><><><><><><>";
     }
 }

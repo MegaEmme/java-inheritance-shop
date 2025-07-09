@@ -36,6 +36,7 @@ public class Smartphone extends Prodotto {
     // metodi aggiuntivi
     @Override
     public String getInfo() {
-        return super.getInfo() + "\nCodice imei : \n " + getImieiCode() + "\nGiga : \n " + getMemoria();
+        return super.getInfo() + "\nCodice imei : \n " + getImieiCode() + "\nGiga : \n " + getMemoria()
+                + "\n<><><><><><><>";
     }
 }

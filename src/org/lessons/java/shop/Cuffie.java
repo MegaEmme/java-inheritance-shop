@@ -40,6 +40,6 @@ public class Cuffie extends Prodotto {
         String wireless = isWireless ? "si" : "no";
         // return String.format("\nColore : \n %s \nWireless : \n %s", this.colore,
         // wireless);
-        return super.getInfo() + "\nColore : \n " + getColore() + "\nWireless : \n " + wireless;
+        return super.getInfo() + "\nColore : \n " + getColore() + "\nWireless : \n " + wireless + "\n<><><><><><><>";
     }
 }
