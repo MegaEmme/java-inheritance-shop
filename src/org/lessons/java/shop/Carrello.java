@@ -6,7 +6,11 @@ import java.util.Scanner;
 
 public class Carrello {
     public static void main(String[] args) {
+
+        // Ingresso nello shop
         System.out.println("Benvenuto nel Mike's java inheritance shop!");
+
+        // Sezione Tessera
         System.out.println("Possiedi una tessera fedeltà? ( inserisci 'y' per confermare 'n' per negare)");
         Scanner scan = new Scanner(System.in);
         boolean isFidelityPresent = false;
@@ -26,13 +30,12 @@ public class Carrello {
             }
         } while (!(fidelityCard.equalsIgnoreCase("y") || fidelityCard.equalsIgnoreCase("n")));
 
+        // Selezione tipo prodotto (smartphone - TV - cuffie)
         System.out.println(
                 "\n Stai acquistando: Smartphone, TV o Cuffie? (puoi anche digitare 1, 2 o 3 per le rispettive sezioni)");
-
         String prodottoCarrello = scan.nextLine();
 
         // Sezione Smartphone
-
         if (prodottoCarrello.equalsIgnoreCase("smartphone") || prodottoCarrello.equals("1")) {
             System.out.println("Benvenuto nella sezione Smartphone");
             System.out.println(
@@ -149,25 +152,26 @@ public class Carrello {
             } while (!(marcaSmartphone.equalsIgnoreCase("apple") || marcaSmartphone.equals("1")
                     || marcaSmartphone.equalsIgnoreCase("samsung") || marcaSmartphone.equals("2")));
 
-            // Sezione TV
+        }
 
-        } else if (prodottoCarrello.equalsIgnoreCase("tv") || prodottoCarrello.equals("2")) {
+        // Sezione Tv
+        else if (prodottoCarrello.equalsIgnoreCase("tv") || prodottoCarrello.equals("2")) {
             System.out.println("Benvenuto nella sezione TV");
+        }
 
-            // Sezione Cuffie
-
-        } else if (prodottoCarrello.equalsIgnoreCase("cuffie") || prodottoCarrello.equals("3")) {
+        // Sezione Cuffie
+        else if (prodottoCarrello.equalsIgnoreCase("cuffie") || prodottoCarrello.equals("3")) {
             System.out.println("Benvenuto nella sezione Cuffie");
+        }
 
-            // Non trovato
-
-        } else {
+        // Prodotto non trovato
+        else {
             System.out
                     .println(
                             "Prodotto non presente...\n - Inserisci una categoria tra Smartphone (1), TV(2) o Cuffie(3)");
         }
 
+        // Chiusura Scanner
         scan.close();
-
     }
 }

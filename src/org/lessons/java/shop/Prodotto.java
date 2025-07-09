@@ -57,7 +57,6 @@ public class Prodotto {
     }
 
     // metodi aggiuntivi
-
     public String getInfo() {
 
         return String.format(
@@ -67,6 +66,7 @@ public class Prodotto {
                 getPrezzoBase(), getPrezzoIvato().setScale(2, RoundingMode.HALF_UP), this.codice);
     }
 
+    // sconti 2-5-7-10 %
     public BigDecimal getDiscountBase() {
         return this.getPrezzoIvato().divide(BigDecimal.valueOf(100)).multiply(BigDecimal.valueOf(98));
     }
