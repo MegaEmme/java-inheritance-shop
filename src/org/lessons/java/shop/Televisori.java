@@ -9,9 +9,9 @@ public class Televisori extends Prodotto {
     private boolean isSmart;
 
     // costruttori
-    public Televisori(String nome, String marca, BigDecimal prezzo, BigDecimal iva, String dimensioni,
+    public Televisori(String nome, String marca, BigDecimal prezzo, String dimensioni,
             boolean isSmart) {
-        super(nome, marca, prezzo, iva);
+        super(nome, marca, prezzo);
         this.dimensioni = dimensioni;
         this.isSmart = isSmart;
     }
@@ -34,9 +34,9 @@ public class Televisori extends Prodotto {
     }
 
     // metodi aggiuntivi
-
-    public String infoTv() {
+    @Override
+    public String getInfo() {
         String smart = isSmart ? "si" : "no";
-        return String.format("\nDimensioni : \n %s\nSmart Tv : \n %s", this.dimensioni, smart);
+        return super.getInfo() + "\nDimensioni : \n " + getDimensioni() + "\nSmart TV abilitato : \n " + smart;
     }
 }

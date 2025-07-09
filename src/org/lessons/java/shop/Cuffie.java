@@ -9,9 +9,9 @@ public class Cuffie extends Prodotto {
     protected boolean isWireless;
 
     // costruttori
-    public Cuffie(String nome, String marca, BigDecimal prezzo, BigDecimal iva, String colore,
+    public Cuffie(String nome, String marca, BigDecimal prezzo, String colore,
             boolean isWireless) {
-        super(nome, marca, prezzo, iva);
+        super(nome, marca, prezzo);
         this.colore = colore;
         this.isWireless = isWireless;
 
@@ -35,9 +35,11 @@ public class Cuffie extends Prodotto {
     }
 
     // metodi aggiuntivi
-
-    public String infoCuffie() {
+    @Override
+    public String getInfo() {
         String wireless = isWireless ? "si" : "no";
-        return String.format("\nColore : \n %s \nWireless : \n %s", this.colore, wireless);
+        // return String.format("\nColore : \n %s \nWireless : \n %s", this.colore,
+        // wireless);
+        return super.getInfo() + "\nColore : \n " + getColore() + "\nWireless : \n " + wireless;
     }
 }

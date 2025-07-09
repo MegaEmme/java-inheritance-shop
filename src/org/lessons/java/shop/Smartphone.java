@@ -9,9 +9,9 @@ public class Smartphone extends Prodotto {
     private int memoria;
 
     // costruttori
-    public Smartphone(String nome, String marca, BigDecimal prezzo, BigDecimal iva, int imeiCode,
+    public Smartphone(String nome, String marca, BigDecimal prezzo, int imeiCode,
             int memoria) {
-        super(nome, marca, prezzo, iva);
+        super(nome, marca, prezzo);
         this.imeiCode = imeiCode;
         this.memoria = memoria;
     }
@@ -34,7 +34,8 @@ public class Smartphone extends Prodotto {
     }
 
     // metodi aggiuntivi
-    public String infoSmartphone() {
+    @Override
+    public String getInfo() {
         return super.getInfo() + "\nCodice imei : \n " + getImieiCode() + "\nGiga : \n " + getMemoria();
     }
 }
